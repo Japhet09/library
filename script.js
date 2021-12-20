@@ -30,7 +30,23 @@ function addBookToLibrary() {
     myLibrary.push(book)
 
 }
-for(let i=0; i<3; i++){
+for(let i=0; i<2; i++){
 addBookToLibrary()}
 
+
+let body = document.querySelector('body')
+const card = document.createElement('div') //
+card.setAttribute('class','card')
+
+body.appendChild(card)
+
+function displayBooks(){
+    for(i=0; i<myLibrary.length; i++){
+        book = document.createElement('p')
+        book.innerText = myLibrary[i].info()
+        card.appendChild(book)
+    }
+}
+
+displayBooks()
 
