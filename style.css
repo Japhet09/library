@@ -1,0 +1,41 @@
+
+
+
+
+
+#title, #author, #pages{
+   flex-basis: 100%;
+
+}
+
+#form{
+    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+   max-width: 300px;
+   padding: 20px;
+    background-color: #ddd;
+}
+input{
+    padding: 15px;
+    margin: 5px 0 20px 0;
+    background-color: #eee;
+}
+
+.submit{
+    background-color: #b7df7c;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 5%;
+    margin-bottom: 15px;
+}
+
+.newbook{
+    background-color: #128cc5;
+    cursor: pointer;
+    padding: 12px 20px;
+    border-radius: 5%;
+    margin: 15px;
+}
