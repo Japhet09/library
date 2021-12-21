@@ -58,25 +58,37 @@ newBook.innerText = 'NEW BOOK'
 body.prepend(newBook)
 
 let form = document.querySelector('form')
-form.style.display = 'none'
 
+//function to hide  the form
+function hideForm(){
+    form.style.display = 'none'
+}
+
+// 
 newBook.addEventListener('click', addBookToLibrary)
 
 
-
+//Function to display the form and reset
 function addBookToLibrary(){
+    form.style.display = 'flex'
+    form.reset() //to clear the form for the next entries
+   
+}
+
+const submit = document.querySelector('.submit') // button to submit the form
+submit.addEventListener('click', submitBook)
+
+//function that generate the object using the Book constructor with info from the form
+function submitBook(event){
+    event.preventDefault()
     let title = document.querySelector('#title')
     let author = document.querySelector('#author')
     let pages = document.querySelector('#pages')
     let isRead = document.querySelectorAll('input[type=radio]')
 
     let book = new Book(title.value, author.value, pages.value, isRead.value)
-    myLibrary.push(book)
-
-    form.reset
+     myLibrary.push(book)
+     
+     hideForm()  
 
 }
-
-
-
-
