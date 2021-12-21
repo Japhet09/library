@@ -20,7 +20,7 @@ let bornACrime = new Book('Born A Crime', 'Trevor Noah', 165, 'Yes')
 
 
 let myLibrary = []
-
+/*
 function addBookToLibrary() {
     let title = prompt('Whats the title of the book?')
     let author = prompt('Who is the author?')
@@ -33,20 +33,50 @@ function addBookToLibrary() {
 for(let i=0; i<2; i++){
 addBookToLibrary()}
 
+*/
 
 let body = document.querySelector('body')
-const card = document.createElement('div') //
+const card = document.createElement('div') // for displaying books
 card.setAttribute('class','card')
 
 body.appendChild(card)
 
 function displayBooks(){
-    for(i=0; i<myLibrary.length; i++){
-        book = document.createElement('p')
+    for(i=0; i<myLibrary.length; i++){ //display eanch book on its paragraph
+        let book = document.createElement('p')
+        book.setAttribute('class', 'book')
         book.innerText = myLibrary[i].info()
         card.appendChild(book)
     }
 }
 
 displayBooks()
+
+const newBook = document.createElement('button')
+newBook.setAttribute('class', 'newbook')
+newBook.innerText = 'NEW BOOK'
+body.prepend(newBook)
+
+let form = document.querySelector('form')
+form.style.display = 'none'
+
+newBook.addEventListener('click', addBookToLibrary)
+
+
+
+function addBookToLibrary(){
+    let title = document.querySelector('#title')
+    let author = document.querySelector('#author')
+    let pages = document.querySelector('#pages')
+    let isRead = document.querySelectorAll('input[type=radio]')
+
+    let book = new Book(title.value, author.value, pages.value, isRead.value)
+    myLibrary.push(book)
+
+    form.reset
+
+}
+
+
+
 
