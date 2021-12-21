@@ -10,19 +10,24 @@
 </head>
 <body>
 
-    <form >
+    <form id="form">
         
-        <input type="text" name= 'title' id="title" placeholder="title" value="" >
+        <input type="text" name= 'title' id="title" placeholder="Title" value="" >
        
-        <input type="text" name="author" id="author" value="" placeholder="author">
+        <input type="text" name="author" id="author" value="" placeholder="Author">
       
-        <input type="number" name="pages" id="pages" value="" placeholder="pages">
+        <input type="number" name="pages" id="pages" value="" placeholder="Pages">
+       
+        <div class="radio-button">
         <label for="read">Have you read the book?</label>
 
-        <label for="yes">Yes</label>
+            <label for="yes">Yes</label>
         <input type="radio" name="read" id="yes" value="true" checked placeholder="Yes">
+   
         <label for="no">No</label>
         <input type="radio" name="read" id="no" value="false">
+    </div>
+    <button class="submit">Submit</button>
     </form>
     
 </body>
