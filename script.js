@@ -30,8 +30,6 @@ function addBookToLibrary() {
     myLibrary.push(book)
 
 }
-for(let i=0; i<2; i++){
-addBookToLibrary()}
 
 */
 
@@ -42,15 +40,23 @@ card.setAttribute('class','card')
 body.appendChild(card)
 
 function displayBooks(){
+    myLibrary.forEach(books =>{
+        let book = document.createElement('p')
+        book.setAttribute('class', 'book')
+        book.innerText = books.info()
+        card.appendChild(book)
+
+    })
+    /*
     for(i=0; i<myLibrary.length; i++){ //display eanch book on its paragraph
         let book = document.createElement('p')
         book.setAttribute('class', 'book')
         book.innerText = myLibrary[i].info()
         card.appendChild(book)
     }
+    */
 }
 
-displayBooks()
 
 const newBook = document.createElement('button')
 newBook.setAttribute('class', 'newbook')
@@ -98,9 +104,10 @@ function submitBook(event){
        }
    })
 
-
+   // Instantiate a book using the Book constructor
     let book = new Book(title, author, pages, isRead)
      myLibrary.push(book)
+     
      
      hideForm()  
     
