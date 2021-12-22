@@ -39,6 +39,9 @@ card.setAttribute('class','card')
 
 body.appendChild(card)
 
+/*This display function didnt work, it was repeating the display of books which were 
+already displayed
+
 function displayBooks(){
     myLibrary.forEach(books =>{
         let book = document.createElement('p')
@@ -47,14 +50,18 @@ function displayBooks(){
         card.appendChild(book)
 
     })
-    /*
-    for(i=0; i<myLibrary.length; i++){ //display eanch book on its paragraph
-        let book = document.createElement('p')
-        book.setAttribute('class', 'book')
-        book.innerText = myLibrary[i].info()
-        card.appendChild(book)
-    }
+}
     */
+
+
+
+
+function displayBooks(){
+    let book = document.createElement('p')
+    book.setAttribute('class', 'book-display')
+    book.innerText = myLibrary[myLibrary.length-1].info()
+    card.appendChild(book)
+
 }
 
 
@@ -107,10 +114,10 @@ function submitBook(event){
    // Instantiate a book using the Book constructor
     let book = new Book(title, author, pages, isRead)
      myLibrary.push(book)
+
+     displayBooks() // display the book
      
-     
-     hideForm()  
-    
-     displayBooks() 
+     hideForm()  // Hide the form after submit
 
 }
+
