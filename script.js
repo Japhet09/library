@@ -63,8 +63,9 @@ let form = document.querySelector('form')
 function hideForm(){
     form.style.display = 'none'
 }
+hideForm()  // Hide form on load
 
-// 
+// opens the hidden form for user to enter data
 newBook.addEventListener('click', addBookToLibrary)
 
 
@@ -76,19 +77,33 @@ function addBookToLibrary(){
 }
 
 const submit = document.querySelector('.submit') // button to submit the form
+
+//submit the generated book
 submit.addEventListener('click', submitBook)
 
 //function that generate the object using the Book constructor with info from the form
 function submitBook(event){
-    event.preventDefault()
-    let title = document.querySelector('#title')
-    let author = document.querySelector('#author')
-    let pages = document.querySelector('#pages')
-    let isRead = document.querySelectorAll('input[type=radio]')
+    event.preventDefault() // prevent default behavior of submitting the form 
+    let title = document.querySelector('#title').value
+    let author = document.querySelector('#author').value
+    let pages = document.querySelector('#pages').value
+    
+    let isReadbuttons = document.querySelectorAll('input[type=radio]') 
+    //This give us a nodelist for the two buttons
+    let isRead = ''
+    // assign the checked button to the above variable
+   isReadbuttons.forEach(button =>{
+       if (button.checked){
+           isRead = button.value
+       }
+   })
 
-    let book = new Book(title.value, author.value, pages.value, isRead.value)
+
+    let book = new Book(title, author, pages, isRead)
      myLibrary.push(book)
      
      hideForm()  
+    
+     displayBooks() 
 
 }
