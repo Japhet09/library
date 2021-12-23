@@ -7,6 +7,21 @@
    flex-basis: 100%;
 
 }
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#eceff1;
+}
+.heading{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color:#78909c;
+    
+}
 
 #form{
     display: flex;
@@ -15,7 +30,7 @@
     flex-wrap: wrap;
    max-width:20em;
    padding: 20px;
-   background-color:#e5e5e5; ;
+   background-color:#b0bec5; ;
 }
 input{
     padding: 15px;
@@ -40,12 +55,7 @@ input{
     border-radius: 5%;
     margin: 15px;
 }
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .card{
     display: flex;
@@ -57,24 +67,38 @@ body{
 .book-display{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    font-size: 3em;
+    font-size: 2em;
     color: black;
-    background-color:#e5e5e5; 
-    margin: 0.1em;
+    background-color:#b0bec5; 
+    margin: 0.5em;
     padding: 0.5em;
-    width: 5em;
+    width: 25%;
 
 }
 .remove{
     color: white;
     background-color:blue;
     cursor: pointer;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 5%;
-    margin: 15px;
+    margin-top: 40px;
     
-
 }
 
+.book-display:nth-child(odd){
+    background-color: #9dc8cf;
+
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    display:flex ;
+    justify-content: center;
+    margin-bottom: auto;
+    background-color: #e2baad;
+    width: 100%; 
+    font-size: 1.2em;
+    padding: 5px;
+}
