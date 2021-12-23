@@ -58,7 +58,7 @@ function displayBooks(){
     let book = document.createElement('p')
     book.setAttribute('class', 'book-display')
     book.innerText = myLibrary[myLibrary.length-1].info()
-    //a unique identifier for each book
+    //a unique identifier for each book displayed(data attribute)
     book.dataset.index  = myLibrary.length
     card.appendChild(book)
 
