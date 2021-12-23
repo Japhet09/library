@@ -81,8 +81,8 @@ function displayBooks(){
 
 const newBook = document.createElement('button')
 newBook.setAttribute('class', 'newbook')
-newBook.innerText = 'NEW BOOK'
-body.prepend(newBook)
+newBook.innerText = 'ADD BOOK'
+body.appendChild(newBook)
 
 let form = document.querySelector('form')
 
