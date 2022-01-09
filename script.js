@@ -2,39 +2,24 @@ function Book(title, author, pages, isRead) {//constructor function
     this.title = title
     this.author = author
     this.pages = pages
-
-    if (isRead==='Yes'){
-        this.isRead = 'I have read it'
-    } else {
-        this.isRead = ' not read yet'
-    }
-   //Same as above if statement
-     //isRead==='Yes'?this.isRead = 'I have read it':this.isRead = 'not read yet'
+    isRead==='Yes'?this.isRead = 'I have read it':this.isRead = 'not read yet'
 }
 
 Book.prototype.info = function () { // info method inheritable by all instances of Book Constructor
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`
 }
 
+//Hold all the books
 let myLibrary = []
 
 
 let body = document.querySelector('body')
-const card = document.createElement('div') // for displaying books
-card.setAttribute('class','card')
-
-body.appendChild(card)
-
-//This display function didnt work, it was repeating the display of books which were  already displayed
-
-function displayBooks(){
-}
     
 
-const newBook = document.createElement('button')
-newBook.setAttribute('class', 'newbook')
-newBook.innerText = 'ADD BOOK'
-body.appendChild(newBook)
+const addBook = document.createElement('button')
+addBook.setAttribute('class', 'newbook')
+addBook.innerText = 'ADD BOOK'
+body.appendChild(addBook)
 
 let form = document.querySelector('form')
 
@@ -45,7 +30,7 @@ function hideForm(){
 hideForm()  // Hide form on load
 
 // opens the hidden form for user to enter data
-newBook.addEventListener('click', addBookToLibrary)
+addBook.addEventListener('click', addBookToLibrary)
 
 
 //Function to display the form and reset
@@ -87,6 +72,8 @@ function submitBook(event){
     displayBooks(book)
     removeElement(book)
     console.log(typeof book.isRead)
+
+    //changeReadStatus(book)
 }
 //function to add books to the browser
 const tbody = document.querySelector('tbody')
@@ -97,6 +84,7 @@ function displayBooks(book){
     const tdpages = document.createElement('td')
     const tdstatus = document.createElement('td')
     const  tdchange = document.createElement('td')
+    tdchange.classList.add('change')
     const tdremove = document.createElement('td')
     tdremove.classList.add('remove')
 
@@ -104,7 +92,7 @@ function displayBooks(book){
     tdauthor.innerText = book.author
     tdpages.innerText = book.pages
     tdstatus.innerText = book.isRead
-    
+
     if(book.isRead =='I have read it'){
         tdchange.innerText = '\u2714'
     }else{
@@ -136,10 +124,20 @@ function removeElement(){
     }
 
 }
+/*
 //change read status
+
 function changeReadStatus(book){
-    if(book.isRead ==='I have read it'){
-        book.isRead === 'not read it yet'
+    const changes = document.querySelectorAll('.change')
+    console.dir(changes)
+    for(let change of changes){
+        change.addEventListener('click',e=>{
+            if(book.isRead == 'I have read it'){
+                book.isRead == ' not read it yet'
+            }
+
+        })
     }
-    book.isRead = 'I have read it'
+   
 }
+*/
