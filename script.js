@@ -114,6 +114,7 @@ function displayBooks(book){
 //function to remove books from the browser
 function removeElement(){
     const removeButtons = document.querySelectorAll('.remove')
+    
     for(let remove of removeButtons){
         remove.addEventListener('click',e=>{
             let parentElement = remove.parentElement
