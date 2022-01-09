@@ -39,45 +39,11 @@ card.setAttribute('class','card')
 
 body.appendChild(card)
 
-/*This display function didnt work, it was repeating the display of books which were 
-already displayed
+//This display function didnt work, it was repeating the display of books which were  already displayed
 
 function displayBooks(){
-    myLibrary.forEach(books =>{
-        let book = document.createElement('p')
-        book.setAttribute('class', 'book')
-        book.innerText = books.info()
-        card.appendChild(book)
-
-    })
 }
-    */
-
-function displayBooks(){
-    //a paragraph that hold the book info
-    let book = document.createElement('p')
-    book.setAttribute('class', 'book-display')
-    book.innerText = myLibrary[myLibrary.length-1].info()
-    //a unique identifier for each book displayed(data attribute)
-    book.dataset.index  = myLibrary.length
-    card.appendChild(book)
-
-   // a button for each book displayed
-    let remove = document.createElement('button')
-    remove.setAttribute('class', 'remove')
-    remove.innerText = 'REMOVE'
-    book.appendChild(remove)
-
-    //Remove the book on display but its still in the myLibrary
-    remove.addEventListener('click',()=>{
-        card.removeChild(book)
-        //This also works
-        // book.remove()
-    })
-
-}
-
-
+    
 
 const newBook = document.createElement('button')
 newBook.setAttribute('class', 'newbook')
@@ -129,7 +95,7 @@ function submitBook(event){
     let book = new Book(title, author, pages, isRead)
      myLibrary.push(book)
 
-     displayBooks() // display the book
+     displayBooks()
      
      hideForm()  // Hide the form after submit
 
