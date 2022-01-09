@@ -79,11 +79,36 @@ function submitBook(event){
 
    // Instantiate a book using the Book constructor
     let book = new Book(title, author, pages, isRead)
+    console.log(book)
      myLibrary.push(book)
 
-     //displayBooks()
+     
      
      hideForm()  // Hide the form after submit
-
+console.log(isRead.value)
+console.log(pages)
+console.log(title)
+console.log(author)
+displayBooks(book)
 }
 
+const tbody = document.querySelector('tbody')
+function displayBooks(){
+    const tr = document.createElement('tr')
+    const tdtitle = document.createElement('td')
+    const tdauthor = document.createElement('td')
+    const tdpages = document.createElement('td')
+    const tdstatus = document.createElement('td')
+
+    tdtitle.innerText = this.title.value
+    tdauthor.innerText = this.author.value
+    tdpages.innerText = this.pages.value
+    tdstatus.innerText = this.isRead
+    //console.log(isRead)
+    tr.appendChild(tdtitle)
+    tr.appendChild(tdauthor)
+    tr.appendChild(tdpages)
+    tr.appendChild(tdstatus)
+tbody.appendChild(tr)
+
+}
