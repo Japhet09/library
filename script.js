@@ -16,22 +16,8 @@ Book.prototype.info = function () { // info method inheritable by all instances 
     return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`
 }
 
-let bornACrime = new Book('Born A Crime', 'Trevor Noah', 165, 'Yes')
-
-
 let myLibrary = []
-/*
-function addBookToLibrary() {
-    let title = prompt('Whats the title of the book?')
-    let author = prompt('Who is the author?')
-    let pages = parseInt(prompt('How many pages?'))
-    let isRead = prompt('Have you read the book? Yes or No')
-    let book = new Book(title, author, pages, isRead)
-    myLibrary.push(book)
 
-}
-
-*/
 
 let body = document.querySelector('body')
 const card = document.createElement('div') // for displaying books
@@ -95,7 +81,7 @@ function submitBook(event){
     let book = new Book(title, author, pages, isRead)
      myLibrary.push(book)
 
-     displayBooks()
+     //displayBooks()
      
      hideForm()  // Hide the form after submit
 
