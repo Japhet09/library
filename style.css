@@ -13,6 +13,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color:#eceff1;
+    width:100%;
 }
 .heading{
     display: flex;
@@ -40,7 +41,7 @@ input{
 
 .submit{
     color: white;
-    background-color:blue;
+    background-color:#04AA6D;;
     cursor: pointer;
     padding: 12px 20px;
     border-radius: 5%;
@@ -49,11 +50,12 @@ input{
 
 .newbook{
     color: white;
-    background-color:blue;
+    background-color:#04AA6D;;
     cursor: pointer;
     padding: 12px 20px;
     border-radius: 5%;
     margin: 15px;
+    cursor: pointer;
 }
 
 
@@ -79,11 +81,10 @@ input{
 }
 .remove{
     color: white;
-    background-color:blue;
+    color:rgb(255, 0, 34);
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 5%;
-    margin-top: 40px;
+    font-weight: bolder;
+
     
 }
 
@@ -119,7 +120,6 @@ footer{
 thead {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
     background-color: #04AA6D;
     color: white;
   }

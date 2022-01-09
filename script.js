@@ -82,11 +82,13 @@ function submitBook(event){
     console.log(book)
      myLibrary.push(book)
 
-     hideForm()  // Hide the form after submit
+    hideForm()  // Hide the form after submit
 
     displayBooks(book)
+    removeElement(book)
+    console.log(typeof book.isRead)
 }
-
+//function to add books to the browser
 const tbody = document.querySelector('tbody')
 function displayBooks(book){
     const tr = document.createElement('tr')
@@ -94,17 +96,50 @@ function displayBooks(book){
     const tdauthor = document.createElement('td')
     const tdpages = document.createElement('td')
     const tdstatus = document.createElement('td')
+    const  tdchange = document.createElement('td')
+    const tdremove = document.createElement('td')
+    tdremove.classList.add('remove')
 
     tdtitle.innerText = book.title
     tdauthor.innerText = book.author
     tdpages.innerText = book.pages
     tdstatus.innerText = book.isRead
     
+    if(book.isRead =='I have read it'){
+        tdchange.innerText = '\u2714'
+    }else{
+        tdchange.innerText = '\u2716'
+    }
+    tdremove.innerText = '\u2716'
+    
     tr.appendChild(tdtitle)
     tr.appendChild(tdauthor)
     tr.appendChild(tdpages)
     tr.appendChild(tdstatus)
+    tr.appendChild(tdchange)
+    tr.appendChild(tdremove)
 
     tbody.appendChild(tr)
 
+}
+
+//function to remove books from the browser
+function removeElement(){
+    const removeButtons = document.querySelectorAll('.remove')
+    for(let remove of removeButtons){
+        remove.addEventListener('click',e=>{
+            let parentElement = remove.parentElement
+            parentElement.remove()
+            console.log(parentElement)
+        })
+
+    }
+
+}
+//change read status
+function changeReadStatus(book){
+    if(book.isRead ==='I have read it'){
+        book.isRead === 'not read it yet'
+    }
+    book.isRead = 'I have read it'
 }
